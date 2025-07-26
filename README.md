@@ -1,6 +1,6 @@
-# Python + Selenium + Docker + Allure
+# Python + Selenium (with POM) + Docker + Allure
 
-This project demonstrates how to run automated tests written in Python using Selenium within Docker containers. After test execution, an Allure report is generated.
+This project demonstrates how to run automated tests written in Python using Selenium within Docker containers. All tests are implemented using the Page Object Model (POM) pattern to improve maintainability and readability. After test execution, an Allure report is generated.
 
 ##  Technologies Used
 
