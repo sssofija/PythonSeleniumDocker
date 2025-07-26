@@ -1,0 +1,23 @@
+services:
+  selenium:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+    networks:
+      - test-net
+
+  tests:
+    build: .
+    depends_on:
+      - selenium
+    environment:
+      SELENIUM_REMOTE_URL: "http://selenium:4444"
+    volumes:
+      - ./:/app
+    command: ["./wait-for-selenium.sh", "pytest", "--alluredir=allure-results", "--maxfail=1", "--disable-warnings", "-q"]
+    networks:
+      - test-net
+
+networks:
+  test-net:
+    driver: bridge
